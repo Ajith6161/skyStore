@@ -3,7 +3,7 @@ import { Router, Route, Redirect, Switch } from "react-router-dom";
 import Notifications from "react-notification-system-redux";
 import Loadable from "react-loadable";
 import history from "./history";
-// import "./App.scss";
+import "./App.scss";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.min.css";
 import { getCookie, isLoggedIn } from "./lib/helper";

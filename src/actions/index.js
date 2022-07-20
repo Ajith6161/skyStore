@@ -19,3 +19,20 @@ export const search = movieName => dispatch => {
     payload: movieName
   });
 };
+export const getMovies = () => dispatch => {
+  console.log("Get movies")
+  axios
+    .get(`${API_URL}/shows`)
+    .then(res => {
+      console.log("Dispatched",res)
+      dispatch({
+        type: actionTypes.GET_MOVIES_SUCCESS,
+        payload: res.data
+      });
+    })
+    .catch(() => {
+      dispatch({
+        type: actionTypes.GET_MOVIES_ERROR
+      });
+    });
+};

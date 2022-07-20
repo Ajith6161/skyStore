@@ -1,8 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { IMAGE_URL } from "../../constants/Config";
 import { Link } from "react-router-dom";
 import Carousel from "react-multi-carousel";
-import { connect } from "react-redux";
 import { Helmet } from "react-helmet";
 import { getCookie } from "../../lib/helper";
 const Movies = ({ movies, userSubDetail, movieName }) => {
@@ -27,28 +26,33 @@ const Movies = ({ movies, userSubDetail, movieName }) => {
 
   // const{movieName} = this.props;
   let filteredMovie;
-  if (movies) {
-    filteredMovie = movies.filter(each =>
-      each.name.toLowerCase().includes(movieName.toLowerCase())
-    );
-  }
+  // if (movies) {
+  //   filteredMovie = movies.filter(each =>
+  //     each.name.toLowerCase().includes(movieName.toLowerCase())
+  //   );
+  // }
 
   //  console.log('filetermovie', filteredMovie)
   return (
     <div className="container-fluid">
       <div className="title">
-        <h5 className="latest">Latest Movies</h5>
-        {/* <Carousel responsive={responsive}> */}
-        {/* </Carousel> */}
+        <h3 className="latest">Latest Movies & TV</h3>
       </div>
+      <div className="row">
+        {movies.map((value, index) => {
+          return (
+            <div class="col-md-2 ">
+              <img src={value.image.medium} alt="card" width="90%" />
+              <p>{value.name}</p>
+            </div>
+          );
+        })}
+
+      </div>
+
     </div>
   );
 };
 
-function mapStateToProps(state) {
-  return {
-    movieName: state.movieName
-  };
-}
 
-export default connect(mapStateToProps, null)(Movies);
+export default Movies;

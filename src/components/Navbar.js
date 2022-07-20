@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
 import sky_logo from "../assets/img/movie.png";
-import Menu from "./Menu/Menu";
+import Menus from "./Menu/Menu";
+import Drawer from 'rc-drawer';
+import { Menu, Select } from 'antd';
 
 const Header = () => {
+  const [open, setOpen] = useState(false);
+  const SubMenu = Menu.SubMenu;
+  const MenuItemGroup = Menu.ItemGroup;
+  const Option = Select.Option;
+  const handleChange = () => {
+    setOpen(!open);
+  }
   return (
     <>
       <header className="head-wrapper" id="header-view">
@@ -15,14 +24,15 @@ const Header = () => {
                 {/* Left Sidebar Hamburger */}
 
                 <div className="header-left-container">
-                  <a className="hidden-b1 toggle-navigation btn btn--icon">
+                  <a className="hidden-b1 toggle-navigation btn btn--icon" onClick={() => handleChange()}>
                     <span className="hamburger">
                       <i className="fa-solid fa-bars"></i>
                     </span>
                     <span className="text hidden-b3 hidden-xs">Browse</span>
                   </a>
                 </div>
-
+                 {/* Todo Drawer Component */}
+            
                 {/* Main Logo */}
                 <Link to="/" className="logo-anchor anchor">
                   <picture className="logo">
@@ -86,7 +96,7 @@ const Header = () => {
                 </div>
               </div>
             </div>
-            <Menu />
+            <Menus />
           </div>
         </div>
       </header>

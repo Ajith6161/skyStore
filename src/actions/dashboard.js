@@ -13,4 +13,17 @@ export const getMovies = () => dispatch => {
   dispatch({
     type: actionTypes.GET_MOVIES_LOADING
   });
+  axios
+    .get(`${API_URL}/shows`)
+    .then(res => {
+      dispatch({
+        type: actionTypes.GET_MOVIES_SUCCESS,
+        payload: res.data
+      });
+    })
+    .catch(() => {
+      dispatch({
+        type: actionTypes.GET_MOVIES_ERROR
+      });
+    });
 };

@@ -5,6 +5,11 @@ import "../../index.css"
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Footer from "../../components/Footers/index.js";
 import ReactCarousel from "../ReactCarosal/ReactCarousel";
+import Movie from "../movie/index"
+import { connect } from "react-redux";
+import {
+  getMovies,
+} from "../../actions";
 
 class Welcome extends Component {
   state = {
@@ -12,15 +17,27 @@ class Welcome extends Component {
     movies: [],
     images: []
   };
+  componentDidMount(){
+    this.props.getMovies();
+  }
   render() {
     const { movies, text } = this.state;
     return (
       <div className="margin-top-align">
         <Navbar />
         <ReactCarousel />
+        <Movie movies={this.props.state.movies}/>
         <Footer />
       </div>
     );
   }
 }
-export default Welcome;
+
+function mapStateToProps(state) {
+  return {
+    state
+  };
+}
+export default connect(mapStateToProps, {
+  getMovies,
+})(Welcome);
