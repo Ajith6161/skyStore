@@ -76,7 +76,13 @@ a:hover {
   display: inline-block;
   vertical-align: middle;
 }
-
+.back-to-top-link{
+  float: right;
+  margin-right: 6%;
+  background-color: #030f1f;
+  border: none;
+  color: #78B6FA;
+}
 .search-inner-wrapper {
   width: 175px !important;
   position: relative;

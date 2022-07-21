@@ -1,55 +1,81 @@
-import React, { useEffect } from "react";
-import { IMAGE_URL } from "../../constants/Config";
-import { Link } from "react-router-dom";
-import Carousel from "react-multi-carousel";
-import { Helmet } from "react-helmet";
-import { getCookie } from "../../lib/helper";
+import React, { useEffect, useState } from "react";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Tooltip from "react-bootstrap/Tooltip";
+
 const Movies = ({ movies, userSubDetail, movieName }) => {
-  // const responsive = {
-  //   superLargeDesktop: {
-  //     breakpoint: { max: 4000, min: 3000 },
-  //     items: 5
-  //   },
-  //   desktop: {
-  //     breakpoint: { max: 3000, min: 1024 },
-  //     items: 7
-  //   },
-  //   tablet: {
-  //     breakpoint: { max: 1024, min: 464 },
-  //     items: 3
-  //   },
-  //   mobile: {
-  //     breakpoint: { max: 464, min: 0 },
-  //     items: 2
-  //   }
-  // };
+  const [limit, setlimit] = useState(42);
+  const [loading, setloading] = useState(false);
 
-  // const{movieName} = this.props;
   let filteredMovie;
-  // if (movies) {
-  //   filteredMovie = movies.filter(each =>
-  //     each.name.toLowerCase().includes(movieName.toLowerCase())
-  //   );
-  // }
-
+  if (movies && movieName) {
+    console.log(movies[0] && movies[0].name,"movies");
+    filteredMovie = movies && movies.filter(each =>
+      each.name.toLowerCase().includes(movieName.toLowerCase())
+    );
+  }
+  const renderTooltip = props => {
+    console.log(props, "props")
+    return (
+      <Tooltip  {...props}>Tooltip for the register button</Tooltip>
+    )
+  };
+  const topFunction = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  }
+  const ShowMore = () => {
+    setloading(true);
+    if (limit < movies.length) {
+      setTimeout(() => {
+        setlimit(limit + 42);
+        setloading(false);
+      }, 1000);
+    }
+    else{
+      setloading(false);
+    }
+  }
   //  console.log('filetermovie', filteredMovie)
   return (
     <div className="container-fluid">
       <div className="title">
-        <h3 className="latest">Latest Movies & TV</h3>
+        <h3 className="latest" style={{ marginLeft: "5%", marginBottom: "2%" }}>Latest Movies & TV</h3>
       </div>
-      <div className="row">
-        {movies.map((value, index) => {
+      <div className="row" style={{ marginLeft: "5%", marginRight: "5%" }}>
+        {filteredMovie ? filteredMovie.slice(0, limit).map((value, index) => {
           return (
-            <div class="col-md-2 ">
-              <img src={value.image.medium} alt="card" width="90%" />
-              <p>{value.name}</p>
-            </div>
+            <>
+              <OverlayTrigger placement="right" overlay={renderTooltip}>
+                <div class="col-md-2 col-sm-3 col-6">
+                  <img src={value.image.medium} alt="card" width="100%" />
+                  <p>{value.name}</p>
+                </div>
+              </OverlayTrigger>
+            </>
+          );
+        }) : movies.slice(0, limit).map((value, index) => {
+          return (
+            <>
+              <OverlayTrigger placement="right" overlay={renderTooltip}>
+                <div class="col-md-2 col-sm-3 col-6">
+                  <img src={value.image.medium} alt="card" width="100%" />
+                  <p>{value.name}</p>
+                </div>
+              </OverlayTrigger>
+            </>
           );
         })}
-
       </div>
-
+      <div class="text-center relative-container btn-row-container b1-top-cta-space b2-top-cta-space" style={{ marginTop: "3%" }}>
+        <button onClick={() => ShowMore()} className="btn btn--medium b3-btn--small show-more-button active" data-info="" data-tracking="true" type="button" style={{ backgroundColor: loading? "#030F1F" :"#2873C5", color: "white", marginLeft: "15%", width: "13%",border:"none" }}>
+        {loading ? <div className="spin" > <div class="spinner-border text-light"  role="status">
+            <span class="sr-only"></span>
+          </div>
+          </div> : <span class="text">Show more</span>}
+        </button>
+        <button class="back-to-top-link" onClick={() => topFunction()}><a><i class="fas fa-arrow-circle-up"></i> Back to top</a></button></div>
     </div>
   );
 };

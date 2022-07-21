@@ -5,15 +5,24 @@ import sky_logo from "../assets/img/movie.png";
 import Menus from "./Menu/Menu";
 import Drawer from 'rc-drawer';
 import { Menu, Select } from 'antd';
+import { connect } from "react-redux";
+import {
+  search,
+} from "../actions/index";
+import { useSelector, useDispatch } from 'react-redux'
 
 const Header = () => {
   const [open, setOpen] = useState(false);
+  const name = useSelector((state) => state.movieName)
   const SubMenu = Menu.SubMenu;
+  const dispatch = useDispatch()
   const MenuItemGroup = Menu.ItemGroup;
   const Option = Select.Option;
   const handleChange = () => {
     setOpen(!open);
   }
+//  const searchValue = (e) ={
+//  }
   return (
     <>
       <header className="head-wrapper" id="header-view">
@@ -72,9 +81,13 @@ const Header = () => {
                   <div className="search-inner-wrapper">
                     <section className="search-input__container hide-search">
                       <div className="search-input">
+                        {console.log(name,"name")}
                         <input
                           className="search-input__textbox"
                           placeholder="Search for title, actors, directors"
+                          value={name}
+                          style={{color:"black"}}
+                          onChange={(e)=> {dispatch(search(e.target.value))}}
                         />
                         <span className="search-active">
                           <i className="fa-solid fa-magnifying-glass"></i>
@@ -103,5 +116,11 @@ const Header = () => {
     </>
   );
 };
-
-export default Header;
+function mapStateToProps(state) {
+  return {
+    state
+  };
+}
+export default connect(mapStateToProps, {
+  search
+})(Header);

@@ -3,7 +3,8 @@ import * as actionTypes from "../constants/ActionTypes";
 const initialState = {
   isLoading: false,
   error: false,
-  movies: []
+  movies: [],
+  movieName:""
 };
 
 export default function reducer(state = initialState, action) {
