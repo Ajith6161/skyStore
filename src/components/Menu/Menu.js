@@ -13,7 +13,7 @@ const Menu = () => {
             </NavLink>
           </li>
           <li className="menu-item menu-item-level-0">
-            <NavLink to="/newtorent" className="anchor">
+            <NavLink to="/New-To-Rent" className="anchor">
               <span className="menu-text">Movies</span>
               <span className="menu-icon">
                 <i className="fa-solid fa-chevron-down"></i>
@@ -21,49 +21,49 @@ const Menu = () => {
             </NavLink>
             <ul className="menu-level-1">
               <li className="menu-item menu-item-level-1">
-                <NavLink to="/newtorent" className="anchor">
+                <NavLink to="/New-To-Rent" className="anchor">
                   <span className="text">New To Rent</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="/newtobuy" className="anchor">
+                <NavLink to="/New-To-Buy" className="anchor">
                   <span className="text">New To Buy</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="/preorder" className="anchor">
+                <NavLink to="/Pre-Order" className="anchor">
                   <span className="text">Pre-Order</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="/movieboxsets" className="anchor">
+                <NavLink to="/Movie-Box-Seats" className="anchor">
                   <span className="text">Movie Box Sets</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="/officialfilmchart" className="anchor">
+                <NavLink to="/Official-Film-Chart" className="anchor">
                   <span className="text">Official Film Chart</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="/browse" className="anchor">
+                <NavLink to="/Browse" className="anchor">
                   <span className="text">Browse</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="/atoz" className="anchor">
+                <NavLink to="/A-To-Z" className="anchor">
                   <span className="text">A to Z</span>
                 </NavLink>
               </li>
             </ul>
           </li>
           <li className="menu-item menu-item-level-0">
-            <NavLink to="/skystorepremiere" className="anchor">
+            <NavLink to="/Sky-Store-Premiere" className="anchor">
               <span className="menu-text">Sky Store Premiere</span>
             </NavLink>
           </li>
           <li className="menu-item menu-item-level-0">
-            <NavLink to="/under3" className="anchor">
+            <NavLink to="/Sale" className="anchor">
               <span className="menu-text">Sale</span>
               <span className="menu-icon">
                 <i className="fa-solid fa-chevron-down"></i>
@@ -71,34 +71,34 @@ const Menu = () => {
             </NavLink>
             <ul className="menu-level-1">
               <li className="menu-item menu-item-level-1">
-                <NavLink to="/superherosavings" className="anchor">
+                <NavLink to="/Super-Hero-Savings" className="anchor">
                   <span className="text">Superhero savings</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="/storepicks" className="anchor">
+                <NavLink to="/Store-Picks" className="anchor">
                   <span className="text">Store Picks</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="/under3" className="anchor">
+                <NavLink to="/Under-3" className="anchor">
                   <span className="text">Under £3</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="/under4" className="anchor">
+                <NavLink to="/Under-4" className="anchor">
                   <span className="text">Under £4</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="/under5" className="anchor">
+                <NavLink to="/Under-5" className="anchor">
                   <span className="text">Under £5</span>
                 </NavLink>
               </li>
             </ul>
           </li>
           <li className="menu-item menu-item-level-0">
-            <NavLink to="/skyvipgifts" className="anchor">
+            <NavLink to="/Sky-Vip-Gifts" className="anchor">
               <span className="menu-text">Sky VIP</span>
               <span className="menu-icon">
                 <i className="fa-solid fa-chevron-down"></i>
@@ -106,14 +106,14 @@ const Menu = () => {
             </NavLink>
             <ul className="menu-level-1">
               <li className="menu-item menu-item-level-1">
-                <NavLink to="/skyvipgifts" className="anchor">
+                <NavLink to="/Sky-Vip-Gifts" className="anchor">
                   <span className="text">Sky VIP Gifts</span>
                 </NavLink>
               </li>
             </ul>
           </li>
           <li className="menu-item menu-item-level-0">
-            <NavLink to="/mostpopular" className="anchor">
+            <NavLink to="/Most-Popular" className="anchor">
               <span className="menu-text">TV</span>
               <span className="menu-icon">
                 <i className="fa-solid fa-chevron-down"></i>
@@ -121,32 +121,32 @@ const Menu = () => {
             </NavLink>
             <ul className="menu-level-1">
               <li className="menu-item menu-item-level-1">
-                <NavLink to="mostpopular" className="anchor">
+                <NavLink to="/Most-Popular" className="anchor">
                   <span className="text">Most Popular</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="newtostore" className="anchor">
+                <NavLink to="New-To-Store" className="anchor">
                   <span className="text">New To Store</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="drama" className="anchor">
+                <NavLink to="Drama" className="anchor">
                   <span className="text">Drama</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="comedy" className="anchor">
+                <NavLink to="Comedy" className="anchor">
                   <span className="text">Comedy</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="kids" className="anchor">
+                <NavLink to="Kids" className="anchor">
                   <span className="text">Kids</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="all" className="anchor">
+                <NavLink to="All" className="anchor">
                   <span className="text">All</span>
                 </NavLink>
               </li>

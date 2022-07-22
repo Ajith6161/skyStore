@@ -4,31 +4,45 @@ import axios from "axios";
 import "../../index.css"
 import Footer from "../../components/Footers/index.js";
 import ReactCarousel from "../ReactCarosal/ReactCarousel";
+import SelectedMovie from "../movieSelect/index";
 import Movie from "../movie/index"
 import { connect } from "react-redux";
 import {
-  getMovies,search
+  getMovies, search
 } from "../../actions";
 
 class Welcome extends Component {
   state = {
-    text: [],
-    movies: [],
-    images: []
+    movieSelect: "",
+    movieDatas: []
   };
-  componentDidMount(){
+  componentDidMount() {
     this.props.getMovies();
     this.props.search();
-
   }
+
+  // Creating below function to set state 
+  // of this (parent) component.
+  setStateOfParent = (newTitle) => {
+    this.setState({ movieSelect: newTitle });
+    const movieData = (this.props.state.movies).filter((value, index) => {
+      return value.id == newTitle
+    });
+    this.setState({ movieDatas: movieData[0] })
+  }
+
   render() {
-    const { movies, text } = this.state;
+    const { movieSelect, movieDatas } = this.state;
+    const { movieName, movies } = this.props.state;
+
     return (
       <div className="margin-top-align">
-        <Navbar />
-        <ReactCarousel />
-        <Movie movies={this.props.state.movies} movieName={this.props.state.movieName}/>
-        <div className="foter" style={{marginTop:"5%"}} >
+        <div className="nav" >
+          <Navbar />
+          {movieSelect ? null : <ReactCarousel />}
+        {movieSelect ? <SelectedMovie movieDatas={movieDatas} /> : <Movie title={"Latest Movies & TV"} movies={movies} movieName={movieName} select={this.setStateOfParent} /> }
+        </div>
+        <div className="foter" style={{ marginTop: "5%" }} >
           <Footer />
         </div>
       </div>
@@ -42,5 +56,5 @@ function mapStateToProps(state) {
   };
 }
 export default connect(mapStateToProps, {
-  getMovies,search,
+  getMovies, search,
 })(Welcome);

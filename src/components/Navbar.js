@@ -11,7 +11,7 @@ import {
 } from "../actions/index";
 import { useSelector, useDispatch } from 'react-redux'
 
-const Header = () => {
+const Header = ({movieDatas}) => {
   const [open, setOpen] = useState(false);
   const name = useSelector((state) => state.movieName)
   const SubMenu = Menu.SubMenu;

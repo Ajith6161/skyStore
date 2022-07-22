@@ -4,7 +4,8 @@ const initialState = {
   isLoading: false,
   error: false,
   movies: [],
-  movieName:""
+  movieName: "",
+  category:""
 };
 
 export default function reducer(state = initialState, action) {
@@ -32,6 +33,11 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         movieName: action.payload
+      };
+    case actionTypes.CATEGORY_INPUT_SUCCESS:
+      return {
+        ...state,
+        category: action.payload
       };
     case actionTypes.GET_MOVIES_LOADING:
       return {

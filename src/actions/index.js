@@ -19,6 +19,12 @@ export const search = movieName => dispatch => {
     payload: movieName
   });
 };
+export const Category = categories => dispatch => {
+  dispatch({
+    type: actionTypes.CATEGORY_INPUT_SUCCESS,
+    payload: categories
+  });
+};
 export const getMovies = () => dispatch => {
   console.log("Get movies")
   axios
