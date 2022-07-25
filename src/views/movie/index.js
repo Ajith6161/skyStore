@@ -73,20 +73,20 @@ const Movies = ({ title, movies, movieName, select }) => {
         })}
       </div>
       <div class="text-center relative-container btn-row-container b1-top-cta-space b2-top-cta-space" style={{ marginTop: "3%" }}>
-        <div className="row">
-          <div className="col-md-6 col-lg-4 col-12 col-sm-12" >
-            <button onClick={() => ShowMore()} className="Showmore btn--medium b3-btn--small show-more-button active " data-tracking="true" type="button" style={{ backgroundColor: loading ? "#030F1F" : "#2873C5", color: "white", marginLeft: "15%", width: "40%", border: "none" }}>
+        {/* <div className="row"> */}
+          {/* <div className="col-md-6 col-lg-4 col-12 col-sm-12" > */}
+            <button onClick={() => ShowMore()} className="Showmore btn--medium b3-btn--small show-more-button active " data-tracking="true" type="button" style={{ backgroundColor: loading ? "#030F1F" : "#2873C5", color: "white", marginLeft: "15%", border: "none" }}>
               {loading ? <div className="spin" > <div class="spinner-border text-light" role="status">
                 <span class="sr-only"></span>
               </div>
               </div> : <span class="text">Show more</span>}
             </button>
-          </div>
-          <div className="col-md-5 col-lg-5 col-12 col-sm-12">
+          {/* </div> */}
+          {/* <div className="col-md-5 col-lg-5 col-12 col-sm-12"> */}
             <button class="back-to-top-link" onClick={() => topFunction()}><a><i class="fas fa-arrow-circle-up"></i> Back to top</a></button></div>
-        </div>
+        {/* </div> */}
       </div>
-    </div>
+    // </div>
   );
 };
 

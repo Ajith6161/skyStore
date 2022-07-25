@@ -135,5 +135,7 @@ a:hover {
   .carousel-caption p{
     visibility: collapse;
   }
-
+  .Showmore{
+    width:"30% !important"
+  }
 }
