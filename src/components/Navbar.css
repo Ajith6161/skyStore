@@ -204,3 +204,61 @@ input.search-input__textbox.focused {
     display: none;
   }
 }
+.nav{
+  transition: margin-left .5s;
+  padding: 16px;
+}
+.sidebar .closebtn {
+  position: fixed;
+  top: 0;
+  font-size: 8px;
+  margin-left: 50px;
+}
+.sidebar a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #132544;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+.border{
+  border-bottom: "1px solid #323335";
+  margin:"2%"
+}
+/* .sideBar {
+  border-left: 0px solid white;
+}
+.signInContainer > .sideBarItem:first-child {
+  border-left: none;
+}
+
+.signInContainer .sideBarItem a {
+  display: flex;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+}
+.sideBar{
+  background-color: white;
+  position: fixed;
+  height: 100%;
+  width: 50%;
+  background-color: #132544;
+}
+.drawer{
+  margin-left: -90%;
+  background-color: #132544;
+} */

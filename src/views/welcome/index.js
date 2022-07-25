@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import Navbar from "../../components/Navbar";
-import axios from "axios";
 import "../../index.css"
 import Footer from "../../components/Footers/index.js";
 import ReactCarousel from "../ReactCarosal/ReactCarousel";
@@ -14,7 +13,8 @@ import {
 class Welcome extends Component {
   state = {
     movieSelect: "",
-    movieDatas: []
+    movieDatas: [],
+    openDrawer: false
   };
   componentDidMount() {
     this.props.getMovies();

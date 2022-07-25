@@ -10,19 +10,21 @@ const Movies = ({ movieDatas }) => {
         const minutes = (movieDatas.runtime) % 60
         SetHrs(hours);
         SetMin(minutes);
-        var html = movieDatas.summary;
+        var html = (movieDatas.summary);
         var div = document.getElementById("summary");
         div.innerHTML = html;
     }, [])
     return (
         <>
-            <div className="movieselect" >
+            <div className="movieselect">
+                {/* //todo */}
+                {/* style={{backgroundImage:`url(${movieDatas.image.original})`,backgroundRepeat:"no-repeat",backgroundSize:"100% 100%"}} */}
                 <div></div>
                 <div className="row">
                     <div className="col-md-2" style={{ margin: "3%" }}>
                         <img className="imageShow" src={movieDatas.image.medium} alt={movieDatas.name} />
                     </div>
-                    <div className="asset-details col-md-8 col-sm-12 col-12 " style={{margin:"1%"}}>
+                    <div className="asset-details col-md-8 col-sm-12 col-12 " style={{ margin: "1%" }}>
                         <h3 className="product__title bottom-section-space">
                             <span className="product__title-copy">
                                 {movieDatas.name}</span>
@@ -70,7 +72,7 @@ const Movies = ({ movieDatas }) => {
                             </div>
                         </div>
                     </div>
-                    {/* <a><i class="fa fa-play-circle" style="font-size:48px;color:#78B6FA"></i></a> */}
+                    <a style={{ color: "#4E7AAB",margin:"3%",marginTop:"0% !important",cursor:"grab" }}><i class='fas fa-play-circle' style={{ color: "#4E7AAB" }}></i>Thriler</a>
                 </div>
             </div>
         </>

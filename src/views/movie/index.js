@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
-const Movies = ({ title,movies, movieName, select }) => {
+const Movies = ({ title, movies, movieName, select }) => {
   const [limit, setlimit] = useState(42);
   const [loading, setloading] = useState(false);
 
@@ -42,7 +42,7 @@ const Movies = ({ title,movies, movieName, select }) => {
   }
   //  console.log('filetermovie', filteredMovie)
   return (
-    <div className="container-fluid">
+    <div className="movies container-fluid">
       <div className="title">
         <h3 className="latest" style={{ marginLeft: "5%", marginBottom: "2%" }}>{title}</h3>
       </div>
@@ -51,9 +51,9 @@ const Movies = ({ title,movies, movieName, select }) => {
           return (
             <>
               {/* <OverlayTrigger placement="right" overlay={renderTooltip}> */}
-              <div class="col-md-2 col-sm-3 col-6" onClick={() => movieselection(value)}>
+              <div class="col-lg-2 col-md-3 col-sm-3 col-6" style={{ cursor: "grab", cursor: "-webkit-grab" }} onClick={() => movieselection(value)}>
                 <img src={value.image.medium} alt="card" width="100%" />
-                <p>{value.name}</p>
+                <p className="hidepara">{value.name}</p>
               </div>
               {/* </OverlayTrigger> */}
             </>
@@ -63,7 +63,7 @@ const Movies = ({ title,movies, movieName, select }) => {
           return (
             <>
               {/* <OverlayTrigger placement="right" overlay={renderTooltip}> */}
-              <div class="col-md-2 col-sm-3 col-6" onClick={() => movieselection(value)}>
+              <div class="col-lg-2 col-md-3 col-sm-3 col-6" style={{ cursor: "grab", cursor: "-webkit-grab" }} onClick={() => movieselection(value)}>
                 <img src={value.image.medium} alt="card" width="100%" />
                 <p>{value.name}</p>
               </div>
@@ -73,13 +73,19 @@ const Movies = ({ title,movies, movieName, select }) => {
         })}
       </div>
       <div class="text-center relative-container btn-row-container b1-top-cta-space b2-top-cta-space" style={{ marginTop: "3%" }}>
-        <button onClick={() => ShowMore()} className="btn btn--medium b3-btn--small show-more-button active col-12 col-sm-12"  data-tracking="true" type="button" style={{ backgroundColor: loading ? "#030F1F" : "#2873C5", color: "white", marginLeft: "15%", width: "13%", border: "none" }}>
-          {loading ? <div className="spin" > <div class="spinner-border text-light" role="status">
-            <span class="sr-only"></span>
+        <div className="row">
+          <div className="col-md-6 col-lg-4 col-12 col-sm-12" >
+            <button onClick={() => ShowMore()} className="Showmore btn--medium b3-btn--small show-more-button active " data-tracking="true" type="button" style={{ backgroundColor: loading ? "#030F1F" : "#2873C5", color: "white", marginLeft: "15%", width: "40%", border: "none" }}>
+              {loading ? <div className="spin" > <div class="spinner-border text-light" role="status">
+                <span class="sr-only"></span>
+              </div>
+              </div> : <span class="text">Show more</span>}
+            </button>
           </div>
-          </div> : <span class="text">Show more</span>}
-        </button>
-        <button class="back-to-top-link" onClick={() => topFunction()}><a><i class="fas fa-arrow-circle-up"></i> Back to top</a></button></div>
+          <div className="col-md-5 col-lg-5 col-12 col-sm-12">
+            <button class="back-to-top-link" onClick={() => topFunction()}><a><i class="fas fa-arrow-circle-up"></i> Back to top</a></button></div>
+        </div>
+      </div>
     </div>
   );
 };

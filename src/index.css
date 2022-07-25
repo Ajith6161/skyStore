@@ -112,6 +112,18 @@ a:hover {
   .asset-detail{
     margin-left: -15% !important;
   }
+  .sidebar{
+    visibility: hidden;
+  }
+  .Showmore{
+    margin-left: "30%";
+  }
+  .topFunction{
+    margin-left: -20%;
+  }
+  .mySidebar{
+    visibility: hidden;
+  }
 }
 @media (max-width: 800px) {
   .imageShow {
@@ -120,4 +132,8 @@ a:hover {
   .text-center{
     width:"100%"
   }
+  .carousel-caption p{
+    visibility: collapse;
+  }
+
 }
