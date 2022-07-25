@@ -21,10 +21,10 @@ const Movies = ({ movieDatas }) => {
                 {/* style={{backgroundImage:`url(${movieDatas.image.original})`,backgroundRepeat:"no-repeat",backgroundSize:"100% 100%"}} */}
                 <div></div>
                 <div className="row">
-                    <div className="col-md-2" style={{ margin: "3%" }}>
+                    <div className="col-md-2 col-lg-2" style={{ margin: "3%" }}>
                         <img className="imageShow" src={movieDatas.image.medium} alt={movieDatas.name} />
                     </div>
-                    <div className="asset-details col-md-8 col-sm-12 col-12 " style={{ margin: "1%" }}>
+                    <div className="asset-details col-md-9 col-lg-8 col-sm-12 col-12 " style={{ margin: "2%" }}>
                         <h3 className="product__title bottom-section-space">
                             <span className="product__title-copy">
                                 {movieDatas.name}</span>

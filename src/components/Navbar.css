@@ -204,10 +204,7 @@ input.search-input__textbox.focused {
     display: none;
   }
 }
-.nav{
-  transition: margin-left .5s;
-  padding: 16px;
-}
+
 .sidebar .closebtn {
   position: fixed;
   top: 0;
