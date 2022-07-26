@@ -61,7 +61,7 @@ const Header = ({ movieDatas }) => {
                         className="menu-item"
                         data-cta="sign-in navigation-header--sign-in"
                       >
-                        <Link to="/" className="anchor">
+                        <Link to="/login" className="anchor">
                           <span className="text">Sign In</span>
                         </Link>
                       </li>
@@ -70,7 +70,7 @@ const Header = ({ movieDatas }) => {
                         className="menu-item"
                         data-cta="sign-up navigation-header--sign-up"
                       >
-                        <Link to="/" className="anchor">
+                        <Link to="/register" className="anchor">
                           <span className="text">Sign Up</span>
                         </Link>
                       </li>

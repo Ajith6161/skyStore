@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import Tooltip from "react-bootstrap/Tooltip";
 
-const Movies = ({ title, movies, movieName, select }) => {
+const Movies = ({ title, movies, movieName, select,sliceValue }) => {
   const [limit, setlimit] = useState(42);
   const [loading, setloading] = useState(false);
 
@@ -13,6 +13,7 @@ const Movies = ({ title, movies, movieName, select }) => {
       each.name.toLowerCase().includes(movieName.toLowerCase())
     );
   }
+
   // const renderTooltip = props => {
   //   console.log(props, "props")
   //   return (
@@ -30,7 +31,10 @@ const Movies = ({ title, movies, movieName, select }) => {
   }
   const ShowMore = () => {
     setloading(true);
-    if (limit < movies.length) {
+    if(sliceValue){
+      setloading(false);
+    }
+   else if (limit < movies.length) {
       setTimeout(() => {
         setlimit(limit + 42);
         setloading(false);
@@ -40,7 +44,7 @@ const Movies = ({ title, movies, movieName, select }) => {
       setloading(false);
     }
   }
-  //  console.log('filetermovie', filteredMovie)
+   console.log('sliceValue', sliceValue)
   return (
     <div className="movies container-fluid">
       <div className="title">

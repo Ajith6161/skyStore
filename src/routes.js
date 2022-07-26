@@ -5,6 +5,8 @@ import Welcome from "./views/welcome";
 import Home from "./views/Home/index.js";
 import Navbar from "../src/navbar/index";
 import Rent from "../src/views/movieCateggory/index"
+import Logins from "./views/login/index"
+import Register from "./views/registration/index"
 
 const routes = [
   {
@@ -34,31 +36,31 @@ const routes = [
   },
   
   {
-    path: "/New-To-Rent",
+    path: "/New-To-Rent/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/New-To-Buy",
+    path: "/New-To-Buy/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/Pre-Order",
+    path: "/Pre-Order/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/Movie-Box-Seats",
+    path: "/Movie-Box-Seats/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/Official-Film-Chart",
+    path: "/Official-Film-Chart/:id",
     exact: true,
     name: "Rent",
     component: Rent
@@ -70,91 +72,103 @@ const routes = [
     component: Rent
   },
   {
-    path: "/A-To-Z",
+    path: "/login",
+    exact: true,
+    name: "Login",
+    component: Logins
+  },
+  {
+    path: "/register",
+    exact: true,
+    name: "Register",
+    component: Register
+  },
+  {
+    path: "/A-To-Z/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/Sky-Store-Premiere",
+    path: "/Sky-Store-Premiere/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/Sale",
+    path: "/Sale/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/Super-Hero-Savings",
+    path: "/Super-Hero-Savings/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/Store-Picks",
+    path: "/Store-Picks/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/Under-3",
+    path: "/Under-3/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/Under-4",
+    path: "/Under-4/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/Under-5",
+    path: "/Under-5/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/Sky-Vip-Gifts",
+    path: "/Sky-Vip-Gifts/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/Most-Popular",
+    path: "/Most-Popular/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/New-To-Store",
+    path: "/New-To-Store/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/Drama",
+    path: "/Drama/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/Comedy",
+    path: "/Comedy/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/Kids",
+    path: "/Kids/:id",
     exact: true,
     name: "Rent",
     component: Rent
   },
   {
-    path: "/All",
+    path: "/All/:id",
     exact: true,
     name: "Rent",
     component: Rent

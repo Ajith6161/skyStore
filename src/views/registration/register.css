@@ -1,0 +1,50 @@
+#header {
+    display: flex;
+    flex-direction: column;
+    height: 87px;
+    background-size: 100% 100%;
+    margin-top: 0% !important;
+    border-bottom: 1px solid #cccccc;
+    background-color: #0E2655 !important;  
+    padding: 0.5%;
+}
+.page-header-two {
+    font: 1.3em sans-serif;
+    margin-top: 50px;
+    color: #053477;
+}
+#nav {
+    cursor: default;
+    justify-content: center;
+    /* text-align: right; */
+    color: #666666;
+    font-size: 11px;
+    margin-top: 10px;
+    margin-bottom: 8px;
+}
+#nav ul li:first-child a {
+    margin-right: 5px;
+}
+#nav ul li a {
+    margin: 0 0 0 5px;
+}
+#nav a {
+    font-size: 11px;
+}
+#usernameAlternatives ul li, a, a:visited, a:link, a:hover, a:active {
+    color: #0061a6;
+    font-size: 12px;
+    text-decoration: none;
+}
+li {
+    text-align: -webkit-match-parent;
+}
+#nav ul, #nav ol {
+    list-style: none;
+    list-style-image: none;
+}
+
+/* 
+background: url("");
+background-position: top;
+background-repeat: no-repeat; */
