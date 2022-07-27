@@ -81,9 +81,6 @@
     "sass-lint": "^1.12.1",
     "simple-line-icons": "^2.4.1",
     "validator": "^10.11.0",
-    "video-react": "^0.14.1",
-    "videojs-hls-quality-selector": "^1.1.4",
-    "videojs-seek-buttons": "^1.6.0",
     "yup": "^0.26.6"
   },
   "devDependencies": {

@@ -112,30 +112,6 @@ const Header = ({ movieDatas }) => {
           </div>
         </div>
         {/* Todo Drawer Component */}
-        {open && 
-        // <Drawers />
-          <div id="mySidebar" class="sidebar" style={{ width: "65%" }}>
-            <a onClick={() => handleChange()} class="closebtn">C</a>
-            <div className="home" >
-              <a href="#">Home</a>
-              <div className="border" ></div>
-            </div>
-            <div className="users">
-              <a href="#" >Sign In</a>
-              <a href="#">Sign Up</a>
-              <div className="border" ></div>
-            </div>
-            <div className="movie">
-              <a href="#">Movies</a>
-              <a href="#">Sky Store Premier</a>
-              <a href="#">Sale</a>
-              <a href="#">Sky VIP</a>
-              <a href="#">TV</a>
-              <div className="border" ></div>
-              <a href="#">Redeem Voucher</a>
-            </div>
-          </div>
-        }
       </header>
     </>
   );

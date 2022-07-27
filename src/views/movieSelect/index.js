@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
-import moment from 'moment';
+
 
 const Movies = ({ movieDatas }) => {
     const [Hrs, SetHrs] = useState(0)
-    const [Min, SetMin] = useState(0)
+    const [Min, SetMin] = useState(0);
+    const [popup, setPopup] = useState(false);
 
     useEffect(() => {
         const hours = (movieDatas.runtime) / 60
@@ -14,11 +15,12 @@ const Movies = ({ movieDatas }) => {
         var div = document.getElementById("summary");
         div.innerHTML = html;
     }, [])
+    const showPop = () => {
+        setPopup(true)
+    }
     return (
         <>
             <div className="movieselect">
-                {/* //todo */}
-                {/* style={{backgroundImage:`url(${movieDatas.image.original})`,backgroundRepeat:"no-repeat",backgroundSize:"100% 100%"}} */}
                 <div></div>
                 <div className="row">
                     <div className="col-md-2 col-lg-2" style={{ margin: "3%" }}>
@@ -29,7 +31,7 @@ const Movies = ({ movieDatas }) => {
                             <span className="product__title-copy">
                                 {movieDatas.name}</span>
                         </h3>
-                        <div class="vl" ><p>
+                        <div className="vl" ><p>
                             <div style={{ borderRight: "0.5px solid white", display: "inline-block", lineHeight: "15px" }}>
                                 {(movieDatas.premiered).slice(0, 4)}&ensp;
                             </div>&ensp;
@@ -40,7 +42,7 @@ const Movies = ({ movieDatas }) => {
                         </p>
                         </div>
                         <div className="out-of-locale-container top-section-space bottom-section-space" style={{ backgroundColor: "#132544", fontSize: "15px" }}>
-                            <p style={{ padding: "2%" }}><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="yellow" class="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
+                            <p style={{ padding: "2%" }}><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="yellow" className="bi bi-exclamation-triangle-fill" viewBox="0 0 16 16">
                                 <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z" />
                             </svg>&ensp; Only content that has been downloaded can be watched outside of UK, Republic of Ireland and Channel Islands.
                             </p>
@@ -72,7 +74,7 @@ const Movies = ({ movieDatas }) => {
                             </div>
                         </div>
                     </div>
-                    <a style={{ color: "#4E7AAB",margin:"3%",marginTop:"0% !important",cursor:"grab" }}><i class='fas fa-play-circle' style={{ color: "#4E7AAB" }}></i>Thriler</a>
+                    <a style={{ color: "#4E7AAB", margin: "3%", marginTop: "0% !important", cursor: "grab", fontSize: "large" }} href={`/player/${movieDatas.id}`}><i className='fas fa-play-circle' style={{ color: "#4E7AAB" }}></i>Thriler</a>
                 </div>
             </div>
         </>

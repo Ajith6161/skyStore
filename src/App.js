@@ -15,8 +15,6 @@ import Login from "./views/login";
 import { Helmet } from "react-helmet";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "react-multi-carousel/lib/styles.css";
-import "react-alice-carousel/lib/alice-carousel.css";
-import "video-react/dist/video-react.css";
 
 const loading = () => (
   <div className="animated fadeIn pt-3 text-center">Loading...</div>

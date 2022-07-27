@@ -7,6 +7,8 @@ import Navbar from "../src/navbar/index";
 import Rent from "../src/views/movieCateggory/index"
 import Logins from "./views/login/index"
 import Register from "./views/registration/index"
+import Player from "./views/player/index"
+
 
 const routes = [
   {
@@ -34,12 +36,17 @@ const routes = [
     name: "Welcome",
     component: Welcome
   },
-  
   {
     path: "/New-To-Rent/:id",
     exact: true,
     name: "Rent",
     component: Rent
+  },
+  {
+    path: "/player/:id",
+    exact: true,
+    name: "Rent",
+    component: Player
   },
   {
     path: "/New-To-Buy/:id",

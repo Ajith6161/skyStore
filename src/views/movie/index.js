@@ -1,6 +1,4 @@
 import React, { useEffect, useState } from "react";
-import OverlayTrigger from "react-bootstrap/OverlayTrigger";
-import Tooltip from "react-bootstrap/Tooltip";
 
 const Movies = ({ title, movies, movieName, select,sliceValue }) => {
   const [limit, setlimit] = useState(42);
