@@ -10,7 +10,7 @@ import { getCookie, isLoggedIn } from "./lib/helper";
 /** Layouts **/
 import DefaultLayout from "./containers/DefaultLayout";
 /** Views **/
-import Home from "./views/Home/index.js";
+// import Home from "./views/Home/index.js";
 import Login from "./views/login";
 import { Helmet } from "react-helmet";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -65,13 +65,8 @@ class App extends Component {
           <Router history={history}>
             <Switch>
               <Route exact path="/">
-                {getCookie("userId") ? <Home /> : <Redirect to="/ott/.com/" />}
+                <Redirect to="/ott/.com/" />
               </Route>
-              <Route
-                exact
-                path="/home"
-                render={() => (isLoggedIn() ? <Login /> : <Home />)}
-              />
               <DefaultLayout
                 exact
                 name="Page 404"

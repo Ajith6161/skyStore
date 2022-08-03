@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const Movies = ({ movieDatas }) => {
@@ -74,7 +75,9 @@ const Movies = ({ movieDatas }) => {
                             </div>
                         </div>
                     </div>
-                    <a style={{ color: "#4E7AAB", margin: "3%", marginTop: "0% !important", cursor: "grab", fontSize: "large" }} href={`/player/${movieDatas.id}`}><i className='fas fa-play-circle' style={{ color: "#4E7AAB" }}></i>Thriler</a>
+                    <Link to={`/player/${movieDatas.id}`}>
+                        <a style={{ color: "#4E7AAB", margin: "3%", marginTop: "0% !important", cursor: "grab", fontSize: "large" }} ><i className='fas fa-play-circle' style={{ color: "#4E7AAB" }}></i>Thriler</a>
+                    </Link>
                 </div>
             </div>
         </>
