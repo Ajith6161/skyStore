@@ -2,11 +2,10 @@ import DefaultLayout from "./containers/DefaultLayout";
 import Page404 from "./views/Page404";
 import Welcome from "./views/welcome";
 import Navbar from "../src/navbar/index";
-import Rent from "../src/views/movieCateggory/index"
-import Logins from "./views/login/index"
-import Register from "./views/registration/index"
-import Player from "./views/player/index"
-
+import Rent from "../src/views/movieCateggory/index";
+import Logins from "./views/login/index";
+import Register from "./views/registration/index";
+import Player from "./views/player/index";
 
 const routes = [
   {
@@ -65,7 +64,7 @@ const routes = [
     component: Rent
   },
   {
-    path: "/Browse",
+    path: "/Browse/:id",
     exact: true,
     name: "Rent",
     component: Rent

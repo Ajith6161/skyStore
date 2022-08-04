@@ -76,12 +76,12 @@ a:hover {
   display: inline-block;
   vertical-align: middle;
 }
-.back-to-top-link{
+.back-to-top-link {
   float: right;
   margin-right: 6%;
   background-color: #030f1f;
   border: none;
-  color: #78B6FA;
+  color: #78b6fa;
 }
 .search-inner-wrapper {
   width: 175px !important;
@@ -109,19 +109,19 @@ a:hover {
   .movieselect {
     margin-top: 15%;
   }
-  .asset-detail{
+  .asset-detail {
     margin-left: -15% !important;
   }
-  .sidebar{
+  .sidebar {
     visibility: hidden;
   }
-  .Showmore{
+  .Showmore {
     margin-left: "30%";
   }
-  .topFunction{
+  .topFunction {
     margin-left: -20%;
   }
-  .mySidebar{
+  .mySidebar {
     visibility: hidden;
   }
 }
@@ -129,13 +129,16 @@ a:hover {
   .imageShow {
     background-size: cover;
   }
-  .text-center{
-    width:"100%"
+  .text-center {
+    width: "100%";
   }
-  .carousel-caption p{
+  .carousel-caption p {
     visibility: collapse;
   }
-  .Showmore{
-    width:"30% !important"
+  .Showmore {
+    width: "30% !important";
   }
 }
+/* .main {
+  background-color: #030F1F;
+}   */

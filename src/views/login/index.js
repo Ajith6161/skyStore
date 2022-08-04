@@ -1,10 +1,93 @@
-import React from "react";
+import React, { useState } from "react";
 import "./login.css";
 import { Link } from "react-router-dom";
-
-import logo from "../../assets/img/movie.png"
+import axios from "axios";
+import sky_logo from "../../assets/img/sky.png";
 
 const SignIn = () => {
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
+  // Checks if the input Field is empty
+  const isEmpty = value =>
+    value === "" || value === undefined || value === null;
+
+  const validateInput = (value, fieldName) =>
+    isEmpty(value) ? `${fieldName} cannot be left blank` : "";
+
+  // Check Email
+  const checkEmail = field => {
+    console.log("Field", field);
+    let emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    let emailErr = validateInput(field, "Email");
+    let err =
+      emailErr !== ""
+        ? emailErr
+        : !field.match(emailRegex)
+        ? "Invalid Email: Email Format eg. abc@def.xyz"
+        : "";
+    console.log(err);
+    setEmailError(err);
+    return err;
+  };
+
+  // Check Password
+  const checkPassword = field => {
+    let passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/;
+    let passwordErr = validateInput(field, "Password");
+    let err =
+      passwordErr !== ""
+        ? passwordErr
+        : !field.match(passwordRegex)
+        ? " Password must contain atleast 8 Digits, One digit and Special character"
+        : "";
+    setPasswordError(err);
+    return err;
+    // ^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$
+  };
+
+  const submitHandler = e => {
+    e.preventDefault();
+
+    let signin_form = e.target;
+    let formData = Object.fromEntries(new FormData(signin_form));
+    let isInValidEmail = checkEmail(formData.email);
+    let isInValidPssword = checkPassword(formData.password);
+    console.log(isInValidEmail);
+    if (!isInValidEmail && !isInValidPssword) {
+      const url = "https://jsonplaceholder.typicode.com/users";
+      const headers = { "Content-Type": "Application/json" };
+
+      axios
+        .post(url, formData, headers)
+        .then(res => {
+          return res.data;
+        })
+        .then(data => {
+          if (!localStorage.getItem(data.email)) {
+            alert("User does not Exist !! Please SignUp");
+          } else {
+            if (
+              JSON.parse(localStorage.getItem(data.email)).password ===
+              data.password
+            ) {
+              sessionStorage.setItem("token", "loggedIn");
+              sessionStorage.setItem("email", data.email);
+              alert("Authentication Successfull");
+              window.location.replace("/");
+            } else {
+              alert("Incorrect Password !!");
+            }
+          }
+        });
+
+      // window.localStorage.setItem("LoginDetails", JSON.stringify(formData));
+      // alert("Form Sign in validation successfull");
+    } else {
+      console.log("Verification Failed");
+    }
+  };
+
   return (
     <div className="signin-container">
       <div id="signin-box" className="sign-in-box">
@@ -13,7 +96,7 @@ const SignIn = () => {
             <div className="panel-header">
               <Link to="/">
                 <div className="signin-logo">
-                  <img src={logo} alt="" />
+                  <img src={sky_logo} alt="" />
                 </div>
               </Link>
             </div>
@@ -26,18 +109,21 @@ const SignIn = () => {
               <h3 className="signin-title">Sign in</h3>
 
               <div className="signin-form">
-                <form noValidate="novalidate">
+                <form noValidate="novalidate" onSubmit={submitHandler}>
                   <div className="formFieldsWrapper">
                     <div className="label">
-                      <label htmlFor="username">Email or Username</label>
+                      <label htmlFor="email">Email or Username</label>
                       <input
                         type="text"
-                        id="username"
-                        name="username"
-                        defaultValue=""
+                        id="email"
+                        name="email"
                         autoCapitalize="off"
-                        autoComplete="on"
+                        autoComplete="off"
+                        onChange={e => checkEmail(e.target.value)}
                       />
+                      {emailError && (
+                        <span className="small danger">{emailError}</span>
+                      )}
                     </div>
                     <div className="label">
                       <label htmlFor="password">Password</label>
@@ -45,16 +131,13 @@ const SignIn = () => {
                         type="password"
                         id="password"
                         name="password"
-                        defaultValue=""
                         autoCapitalize="off"
                         autoComplete="off"
-                        autoCorrect="off"
-                        aria-required="true"
-                        minLength="8"
-                        maxLength="32"
-                        aria-invalid="false"
-                        placeholder=""
+                        onChange={e => checkPassword(e.target.value)}
                       />
+                      {passwordError && (
+                        <span className="small danger">{passwordError}</span>
+                      )}
                     </div>
 
                     <p className="link">
@@ -84,7 +167,6 @@ const SignIn = () => {
                         type="checkbox"
                         id="remember"
                         name="remember"
-                        aria-required="true"
                         data-tracking="true"
                         data-tracking-label="remember-username-checked"
                         data-analytics-name="remember-username"
@@ -137,7 +219,7 @@ const SignIn = () => {
                 <p>
                   More about <Link to="/">Sky ID</Link>
                 </p>
-                <Link to="/signup">
+                <Link to="/register">
                   <button className="signup-btn sky-btn-dark">Sign up</button>
                 </Link>
               </div>
@@ -147,6 +229,53 @@ const SignIn = () => {
       </div>
 
       <div className="background-signin"></div>
+
+      {/* Global Footer */}
+      {/* <div id="globalFooter">
+        <div className="globalFooterBottom">
+          <span id="copyright">© 2022 Sky UK</span>
+          <ul>
+            <li>
+              <Link
+                id="privacyStatementLink"
+                to="/"
+                data-tracking-label="privacy-statement"
+              >
+                Privacy &amp; Cookies Notice
+              </Link>
+            </li>
+            <li>
+              <Link
+                id="termsAndConditionsLink"
+                to="/"
+                data-tracking-label="terms-and-conditions"
+              >
+                Terms &amp; Conditions
+              </Link>
+            </li>
+            <li>
+              <Link
+                id="accessibilityInformationLink"
+                to="/"
+                data-tracking-label="accessibility"
+              >
+                Accessibility Information
+              </Link>
+            </li>
+            <li>
+              <Link
+                id="feedbackLink"
+                to="/"
+                target="_blank"
+                data-tracking-label="feedback"
+              >
+                Feedback
+              </Link>
+            </li>
+          </ul>
+        </div>
+      </div> */}
+      {/*  */}
     </div>
   );
 };

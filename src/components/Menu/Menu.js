@@ -126,27 +126,27 @@ const Menu = () => {
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="New-To-Store/18" className="anchor">
+                <NavLink to="/New-To-Store/18" className="anchor">
                   <span className="text">New To Store</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="Drama/16" className="anchor">
+                <NavLink to="/Drama/16" className="anchor">
                   <span className="text">Drama</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="Comedy/15" className="anchor">
+                <NavLink to="/Comedy/15" className="anchor">
                   <span className="text">Comedy</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="Kids/5" className="anchor">
+                <NavLink to="/Kids/5" className="anchor">
                   <span className="text">Kids</span>
                 </NavLink>
               </li>
               <li className="menu-item menu-item-level-1">
-                <NavLink to="All/8" className="anchor">
+                <NavLink to="/All/8" className="anchor">
                   <span className="text">All</span>
                 </NavLink>
               </li>
