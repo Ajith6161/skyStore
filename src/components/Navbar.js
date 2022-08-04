@@ -3,25 +3,21 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 import sky_logo from "../assets/img/movie.png";
 import Menus from "./Menu/Menu";
-import Drawers from './drawer';
-import { Menu, Select } from 'antd';
+import Drawers from "./drawer";
+import { Menu } from "antd";
 import { connect } from "react-redux";
-import {
-  search,
-} from "../actions/index";
-import { useSelector, useDispatch } from 'react-redux'
+import { search } from "../actions/index";
+import { useSelector, useDispatch } from "react-redux";
 
 const Header = ({ movieDatas }) => {
   const [open, setOpen] = useState(false);
-  const name = useSelector((state) => state.movieName)
+  const name = useSelector(state => state.movieName);
   const SubMenu = Menu.SubMenu;
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
   const MenuItemGroup = Menu.ItemGroup;
-  const Option = Select.Option;
   const handleChange = () => {
-    console.log("Drawer Clicked");
     setOpen(!open);
-  }
+  };
 
   return (
     <>
@@ -33,7 +29,10 @@ const Header = ({ movieDatas }) => {
                 {/* Left Sidebar Hamburger */}
 
                 <div className="header-left-container">
-                  <a className="hidden-b1 toggle-navigation btn btn--icon" onClick={() => handleChange()}>
+                  <a
+                    className="hidden-b1 toggle-navigation btn btn--icon"
+                    onClick={() => handleChange()}
+                  >
                     <span className="hamburger">
                       <i className="fa-solid fa-bars"></i>
                     </span>
@@ -85,7 +84,9 @@ const Header = ({ movieDatas }) => {
                           placeholder="Search for title, actors, directors"
                           value={name}
                           style={{ color: "black" }}
-                          onChange={(e) => { dispatch(search(e.target.value)) }}
+                          onChange={e => {
+                            dispatch(search(e.target.value));
+                          }}
                         />
                         <span className="search-active">
                           <i className="fa-solid fa-magnifying-glass"></i>
@@ -105,25 +106,26 @@ const Header = ({ movieDatas }) => {
                     </span>
                   </button>
                 </div>
-
               </div>
             </div>
             <Menus />
           </div>
         </div>
         {/* Todo Drawer Component */}
-        {open && 
-        // <Drawers />
+        {open && (
+          // <Drawers />
           <div id="mySidebar" class="sidebar" style={{ width: "65%" }}>
-            <a onClick={() => handleChange()} class="closebtn">C</a>
-            <div className="home" >
+            <a onClick={() => handleChange()} class="closebtn">
+              C
+            </a>
+            <div className="home">
               <a href="#">Home</a>
-              <div className="border" ></div>
+              <div className="border"></div>
             </div>
             <div className="users">
-              <a href="/login" >Sign In</a>
+              <a href="/login">Sign In</a>
               <a href="/register">Sign Up</a>
-              <div className="border" ></div>
+              <div className="border"></div>
             </div>
             <div className="movie">
               <a href="/New-To-Rent/5">Movies</a>
@@ -131,11 +133,11 @@ const Header = ({ movieDatas }) => {
               <a href="/Sale/10">Sale</a>
               <a href="/Sky-Vip-Gifts/12">Sky VIP</a>
               <a href="/Most-Popular/16">TV</a>
-              <div className="border" ></div>
+              <div className="border"></div>
               <a href="#">Redeem Voucher</a>
             </div>
           </div>
-        }
+        )}
       </header>
     </>
   );

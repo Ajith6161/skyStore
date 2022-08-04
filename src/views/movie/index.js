@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
-// import {
-//   useParams
-// } from "react-router-dom";
 
 const Movies = ({ title, movies, movieName, select, sliceValue }) => {
-  const [limit, setlimit] = useState(0);
+  const [limit, setlimit] = useState(42);
   const [loading, setloading] = useState(false);
   useEffect(() => {
-    setlimit(sliceValue);
+    if (sliceValue) {
+      setlimit(sliceValue);
+    }
   }, [sliceValue]);
   let filteredMovie;
   if (movies && movieName) {
@@ -23,8 +22,6 @@ const Movies = ({ title, movies, movieName, select, sliceValue }) => {
       behavior: "smooth"
     });
   };
-  console.log(limit, "sliceValue");
-
   const movieselection = evt => {
     select(evt.id);
   };
@@ -49,7 +46,6 @@ const Movies = ({ title, movies, movieName, select, sliceValue }) => {
           {title}
         </h3>
       </div>
-      {/* {console.log(filteredMovies,"filteredMovie")} */}
       <div className="row" style={{ marginLeft: "5%", marginRight: "5%" }}>
         {filteredMovie &&
           filteredMovie.slice(0, limit).map((value, index) => {
@@ -66,6 +62,7 @@ const Movies = ({ title, movies, movieName, select, sliceValue }) => {
               </>
             );
           })}
+        {console.log(limit, "limit")}
         {!filteredMovie &&
           movies.slice(0, limit).map((value, index) => {
             return (
@@ -117,10 +114,7 @@ const Movies = ({ title, movies, movieName, select, sliceValue }) => {
           </button>
         </div>
       )}
-
-      {/* </div> */}
     </div>
-    // </div>
   );
 };
 
