@@ -209,7 +209,7 @@ const SignUp = () => {
   };
 
   return (
-    <>
+    <div className="register">
       <div className="signup-header">
         <Link to="/">
           <div className="sky-signup-logo"></div>
@@ -226,7 +226,7 @@ const SignUp = () => {
             {" "}
             <li>
               {" "}
-              <Link to="/signin"> Sign in </Link>{" "}
+              <Link to="/login"> Sign in </Link>{" "}
             </li>
             <li>
               {" "}
@@ -450,7 +450,7 @@ const SignUp = () => {
       {/* Global Footer */}
       <div className="signupFooter" id="globalFooter">
         <div className="globalFooterBottom">
-          <ul>
+          <ul style={{ fontSize: "10px" }}>
             <li>
               <Link
                 id="privacyStatementLink"
@@ -496,7 +496,7 @@ const SignUp = () => {
         </div>
       </div>
       {/*  */}
-    </>
+    </div>
   );
 };
 
