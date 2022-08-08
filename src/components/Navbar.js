@@ -134,7 +134,7 @@ const Header = ({ movieDatas }) => {
               <a href="/Sky-Vip-Gifts/12">Sky VIP</a>
               <a href="/Most-Popular/16">TV</a>
               <div className="border"></div>
-              <a href="#">Redeem Voucher</a>
+              <a href="/redeem">Redeem Voucher</a>
             </div>
           </div>
         )}

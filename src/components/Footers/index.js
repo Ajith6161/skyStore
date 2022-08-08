@@ -26,7 +26,7 @@ const Footer = () => {
               <Link to="/">Help</Link>
             </li>
             <li className="footer-navigation-menu__item">
-              <Link to="/">Redeem Voucher</Link>
+              <Link to="/redeem">Redeem Voucher</Link>
             </li>
           </ul>
         </nav>

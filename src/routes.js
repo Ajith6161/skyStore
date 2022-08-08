@@ -6,6 +6,7 @@ import Rent from "../src/views/movieCateggory/index";
 import Logins from "./views/login/index";
 import Register from "./views/registration/index";
 import Player from "./views/player/index";
+import Redeem from "./views/RedeemVoch/index";
 
 const routes = [
   {
@@ -38,6 +39,12 @@ const routes = [
     exact: true,
     name: "Rent",
     component: Player
+  },
+  {
+    path: "/redeem",
+    exact: true,
+    name: "Redeem",
+    component: Redeem
   },
   {
     path: "/New-To-Buy/:id",

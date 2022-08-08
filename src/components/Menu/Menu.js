@@ -154,7 +154,7 @@ const Menu = () => {
           </li>
 
           <li className="menu-item menu-item-level-0 highlighted">
-            <NavLink to="/redeemvoucher" className="anchor">
+            <NavLink to="/redeem" className="anchor">
               <span className="menu-text">Redeem Voucher</span>
             </NavLink>
           </li>
