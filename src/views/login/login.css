@@ -13,6 +13,7 @@
 }
 
 .signin-container .background-signin {
+  background: transparent url(../../assets/img/background.jpg) no-repeat 0 0;
   height: 522px;
   width: 100%;
   z-index: 1;

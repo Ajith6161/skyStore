@@ -1,4 +1,9 @@
 import React, { useEffect, useState } from "react";
+import Popover from "react-bootstrap/Popover";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
+import Button from "react-bootstrap/Button";
+import Tooltip from "react-bootstrap/Tooltip";
+// import Popover from 'react-bootstrap/Popover';
 
 const Movies = ({ title, movies, movieName, select, sliceValue }) => {
   const [limit, setlimit] = useState(42);
@@ -8,6 +13,7 @@ const Movies = ({ title, movies, movieName, select, sliceValue }) => {
       setlimit(sliceValue);
     }
   }, [sliceValue]);
+
   let filteredMovie;
   if (movies && movieName) {
     filteredMovie =
@@ -38,7 +44,31 @@ const Movies = ({ title, movies, movieName, select, sliceValue }) => {
       setloading(false);
     }
   };
-
+  const renderTooltip = props => {
+    return (
+      <Popover
+        id="popover-basic"
+        placement="auto left"
+        positionLeft={200}
+        style={{ backgroundColor: "#0E306D" }}
+        positionTop={50}
+        title={props.name}
+      >
+        <Popover.Header style={{ backgroundColor: "#0E306D" }}>
+          {props && props.name}
+        </Popover.Header>
+        <Popover.Body style={{ color: "whitesmoke" }}>
+          2022 | 1hr 0min | Cert:A
+          <br />
+          <br />
+          <div className="summary" id="summary">
+            {props.summary.replace(/<\/?[^>]+(>|$)/g, "")}
+          </div>
+        </Popover.Body>
+      </Popover>
+      // </div>
+    );
+  };
   return (
     <div className="movies container-fluid">
       <div className="title">
@@ -72,7 +102,13 @@ const Movies = ({ title, movies, movieName, select, sliceValue }) => {
                   style={{ cursor: "grab", cursor: "-webkit-grab" }}
                   onClick={() => movieselection(value)}
                 >
-                  <img src={value.image.medium} alt="card" width="100%" />
+                  <OverlayTrigger
+                    placement="right"
+                    delay={{ show: 250, hide: 400 }}
+                    overlay={renderTooltip(value)}
+                  >
+                    <img src={value.image.medium} alt="card" width="100%" />
+                  </OverlayTrigger>
                   <p>{value.name}</p>
                 </div>
               </>

@@ -139,6 +139,10 @@ a:hover {
     width: "30% !important";
   }
 }
-/* .main {
-  background-color: #030F1F;
-}   */
+/* .tooltip-arrow,
+.red-tooltip + .tooltip > .tooltip-inner {background-color: #0E306D;}
+
+.bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+.bs-tooltip-bottom .arrow::before {
+  border-bottom-color: #0E306D; /* Red */
+/* } */
