@@ -1,12 +1,15 @@
 import React from "react";
 import { Link } from "react-router-dom";
-// import "./RedeemVoucher.css";
+import "./redeem.css";
 import redeem_bg from "../../assets/img/redeem.jpg";
+import Header from "../../components/Navbar";
+import Footer from "../../components/Footers/index";
 
 const RedeemVoucher = props => {
   return (
     <>
-      <section className="bg-wrapper">
+      <Header />
+      <section className="bg-wrapper" style={{ marginTop: "11%" }}>
         <div className="image-bg">
           <img src={redeem_bg} alt="redeem" />
         </div>
@@ -15,6 +18,7 @@ const RedeemVoucher = props => {
         className={`container movie-cards-section no-mini-banners ${
           props.pathname ? "" : "no-banner"
         }`}
+        style={{ color: "white" }}
       >
         <div className="redeem-section">
           <div className="redeem-voucher-container">
@@ -217,6 +221,7 @@ const RedeemVoucher = props => {
                     </div>
                     {/* Content Ends */}
                   </div>
+                  <Footer />
                 </div>
               </div>
             </div>
